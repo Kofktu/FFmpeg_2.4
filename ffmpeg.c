@@ -3837,7 +3837,7 @@ int main(int argc, char **argv)
     int ret;
     int64_t ti;
 
-//    register_exit(ffmpeg_cleanup);
+   register_exit(ffmpeg_cleanup);
 
     setvbuf(stderr,NULL,_IONBF,0); /* win32 runtime needs this */
 
@@ -3851,13 +3851,13 @@ int main(int argc, char **argv)
         argv++;
     }
 
-//    avcodec_register_all();
-//#if CONFIG_AVDEVICE
-//    avdevice_register_all();
-//#endif
-//    avfilter_register_all();
-//    av_register_all();
-//    avformat_network_init();
+   avcodec_register_all();
+#if CONFIG_AVDEVICE
+   avdevice_register_all();
+#endif
+   avfilter_register_all();
+   av_register_all();
+   avformat_network_init();
 
     show_banner(argc, argv, options);
 
